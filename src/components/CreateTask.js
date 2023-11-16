@@ -1,18 +1,23 @@
-import React, { useState } from "react";
-
+import React, { useState ,useRef} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../utils/taskSlice";
 
 const CreateTask = () => {
-  const [taskInput, setTaskInput] = useState("");
-  const [showTaskInput, setShowTaskInput] = useState("");
- 
-  let taskArray=[]
+  
+  const dispatch=useDispatch();
+  const [showInputTask,setShowInputTask]=useState("");
+  const taskList = useSelector((store) => store.tasks.taskList);
+  const taskRef=useRef();
+  
 
   const handleAdd=()=>{
-   setTaskInput(showTaskInput);
-   taskArray.push(taskInput);
-   setShowTaskInput("")
+  console.log("curre", taskRef?.current?.value);
+  dispatch(addItem(taskRef?.current?.value));
+  setShowInputTask("")
   }
 
+
+  
   
   
   return (
@@ -22,14 +27,12 @@ const CreateTask = () => {
       </div>
 
       <input
+        ref={taskRef}
+        value={showInputTask}
         type="text"
-        value={showTaskInput}
         placeholder="Add Task"
         className="m-4 p-4 w-[300px] rounded-lg"
-        onChange={(e) => {
-          setShowTaskInput(e.target.value);
-          
-        }}
+        onChange={(e)=>setShowInputTask(e.target.value)}
       ></input>
       <button className="bg-green-400 p-4 rounded-lg
        hover:shadow-lg hover:bg-green-300"
@@ -39,7 +42,7 @@ const CreateTask = () => {
       </button>
 
       <div className="task-details">
-        <h4>Total Tasks :</h4>
+        <h4>Total Tasks : {taskList.length}</h4>
         <h4>Remaining Tasks : </h4>
       </div>
     </div>
