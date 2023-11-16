@@ -5,7 +5,7 @@ import ClearButton from './ClearButton'
 
 const Body = () => {
   return (
-    <div className='w-1/2 bg-slate-100 h-auto m-auto flex flex-col gap-10 justify-center text-center items-center pt-16 mt-8 '>
+    <div className='w-1/2 bg-slate-100 h-auto m-auto flex flex-col gap-10 justify-center text-center items-center pt-16 mt-8 rounded-lg '>
       <CreateTask/>
       <TaskContainer/>
       <ClearButton/>
