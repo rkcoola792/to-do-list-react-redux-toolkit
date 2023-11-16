@@ -7,19 +7,22 @@ import { deleteItem } from '../utils/taskSlice';
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import LowPriorityIcon from "@mui/icons-material/LowPriority";
 import { Tooltip } from '@mui/material';
+import EditComponent from './EditComponent';
 
 const Task = ({name,id}) => {
     const [lineThrough,setLineThrough]=useState(false)
     const [highPriority,SetHighPriority]=useState(false)
+    const [edit,setEdit]=useState(false)
+    
     const taskList=useSelector(store=>store.tasks.taskList)
     const dispatch=useDispatch()
-    // console.log(taskList)
     const handleDelete=()=>{
         dispatch(deleteItem(id))
         console.log("id",id)
     }
     const handleEdit=()=>{
-        
+        setEdit(true)
+        console.log(edit)
     }
     const handleCheck=()=>{
      setLineThrough(!lineThrough);
@@ -55,14 +58,16 @@ const Task = ({name,id}) => {
         ></EditIcon>
         <DeleteIcon
           onClick={handleDelete}
-          className=" hover:text-red-500 cursor-pointer hover:scale-125"
+          className="hover:text-red-500 cursor-pointer hover:scale-125"
         ></DeleteIcon>
         <CheckCircleOutlineIcon
           onClick={handleCheck}
           className="hover:text-green-600 cursor-pointer hover:scale-125"
         ></CheckCircleOutlineIcon>
       </div>
+      
     </div>
+    
   );
 }
 

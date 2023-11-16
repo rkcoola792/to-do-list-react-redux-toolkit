@@ -3,7 +3,8 @@ const { createSlice } = require("@reduxjs/toolkit");
 const taskSlice=createSlice({
     name:"task",
     initialState:{
-        taskList:["eat","bath","exercise"]
+        taskList:[],
+        taskLeft:[]
     },
     reducers:{
         addItem:(state,action)=>{
@@ -18,6 +19,7 @@ const taskSlice=createSlice({
         clearItems:(state,action)=>{
             state.taskList=[];
         },
+
     }
 })
 

@@ -7,19 +7,18 @@ const CreateTask = () => {
   const dispatch=useDispatch();
   const [showInputTask,setShowInputTask]=useState("");
   const taskList = useSelector((store) => store.tasks.taskList);
+  const taskLeft = useSelector((store) => store.tasks.taskLeft);
+  
+  // console.log("task left",taskLeft)
+//   dispatch()
   const taskRef=useRef();
   
 
   const handleAdd=()=>{
-  console.log("curre", taskRef?.current?.value);
   dispatch(addItem(taskRef?.current?.value));
   setShowInputTask("")
   }
 
-
-  
-  
-  
   return (
     <div className="to-do-list-container">
       <div>
@@ -43,7 +42,7 @@ const CreateTask = () => {
 
       <div className="task-details">
         <h4>Total Tasks : {taskList.length}</h4>
-        <h4>Remaining Tasks : </h4>
+        <h4>Remaining Tasks : {taskList.length} </h4>
       </div>
     </div>
   );
