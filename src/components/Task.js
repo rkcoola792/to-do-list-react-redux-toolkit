@@ -23,7 +23,7 @@ const Task = ({name,id}) => {
     }
     const handleEdit=()=>{
         dispatch(editItemReducer(id));
-        console.log("editting",id)
+        // console.log("editting",id)
     }
     const handleCheck=()=>{
      setLineThrough(!lineThrough);
@@ -31,7 +31,7 @@ const Task = ({name,id}) => {
      console.log("Taskleft",taskLeft)
     }
   return (
-    <div className={highPriority?"task-container h-[60px] w-[600px] bg-white shadow-lg m-2 flex justify-between rounded-lg animate-blinkingBg":"task-container h-[60px] w-[600px] bg-white shadow-lg m-2 flex justify-between rounded-lg"} >
+    <div className={"task-container h-[60px] w-[600px] bg-white shadow-lg m-2 flex justify-between rounded-lg " + (highPriority  && " animate-blinkingBg ")} >
       <div
         className={lineThrough ? "task-name m-4 line-through" : "task-name m-4"}
       >

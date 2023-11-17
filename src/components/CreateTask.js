@@ -1,36 +1,33 @@
-import React, { useState ,useRef} from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, editItemReducer,updateItem } from "../utils/taskSlice";
+import { addItem, editItemReducer, updateItem } from "../utils/taskSlice";
 
 const CreateTask = () => {
-  
-  const dispatch=useDispatch();
-  const [showInputTask,setShowInputTask]=useState("");
-  const [updateInputTask,setUpdateInputTask]=useState("");
+  const dispatch = useDispatch();
+  const [showInputTask, setShowInputTask] = useState("");
+  const [updateInputTask, setUpdateInputTask] = useState("");
   const taskList = useSelector((store) => store.tasks.taskList);
   const taskLeft = useSelector((store) => store.tasks.taskLeft);
   const editTask = useSelector((store) => store.tasks.editItem);
   const editID = useSelector((store) => store.tasks.editID);
-  
 
-  const taskRef=useRef();
-  const updateRef=useRef();
+  const taskRef = useRef();
+  const updateRef = useRef();
 
-  const handleAdd=()=>{
-  dispatch(addItem(taskRef?.current?.value));
-  setShowInputTask("")
-  }
-  const handleUpdate=()=>{
-    // setUpdateInputTask(taskList[editID])
-  dispatch(updateItem(updateRef?.current?.value));
+  const handleAdd = () => {
+    dispatch(addItem(taskRef?.current?.value));
+    setShowInputTask("");
+  };
+  const handleUpdate = () => {
+    dispatch(updateItem(updateRef?.current?.value));
     dispatch(editItemReducer());
     setShowInputTask("");
-  }
+  };
 
-  const handleBack=()=>{
+  const handleBack = () => {
     dispatch(editItemReducer());
-  }
-console.log("tasklist array" ,taskList[2])
+  };
+
   return (
     <div className="to-do-list-container">
       <div>
