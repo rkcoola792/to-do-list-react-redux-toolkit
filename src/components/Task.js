@@ -3,7 +3,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteItem } from '../utils/taskSlice';
+import { decreaseItem, deleteItem, increaseItem,editItemReducer, updateItem } from '../utils/taskSlice';
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import LowPriorityIcon from "@mui/icons-material/LowPriority";
 import { Tooltip } from '@mui/material';
@@ -12,20 +12,23 @@ import EditComponent from './EditComponent';
 const Task = ({name,id}) => {
     const [lineThrough,setLineThrough]=useState(false)
     const [highPriority,SetHighPriority]=useState(false)
-    const [edit,setEdit]=useState(false)
     
-    const taskList=useSelector(store=>store.tasks.taskList)
+    // const taskList=useSelector(store=>store.tasks.taskList)
+    const taskLeft = useSelector((store) => store.tasks.taskLeft);
+    const editItem = useSelector((store) => store.tasks.editItem);
     const dispatch=useDispatch()
     const handleDelete=()=>{
         dispatch(deleteItem(id))
-        console.log("id",id)
+        // console.log("id",id)
     }
     const handleEdit=()=>{
-        setEdit(true)
-        console.log(edit)
+        dispatch(editItemReducer(id));
+        console.log("editting",id)
     }
     const handleCheck=()=>{
      setLineThrough(!lineThrough);
+     {!lineThrough ? dispatch(decreaseItem()) : dispatch(increaseItem())}
+     console.log("Taskleft",taskLeft)
     }
   return (
     <div className={highPriority?"task-container h-[60px] w-[600px] bg-white shadow-lg m-2 flex justify-between rounded-lg animate-blinkingBg":"task-container h-[60px] w-[600px] bg-white shadow-lg m-2 flex justify-between rounded-lg"} >
