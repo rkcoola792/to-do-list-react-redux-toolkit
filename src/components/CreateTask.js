@@ -37,24 +37,6 @@ const CreateTask = () => {
         {editTask ? (
           <>
             <input
-              ref={taskRef}
-              value={showInputTask}
-              type="text"
-              placeholder="Add Task"
-              className="m-4  p-4 w-[200px] md:w-[300px]  rounded-lg"
-              onChange={(e) => setShowInputTask(e.target.value)}
-            ></input>
-            <button
-              className="bg-green-400 p-4  rounded-lg
-       hover:shadow-lg hover:bg-green-300"
-              onClick={handleAdd}
-            >
-              Add
-            </button>
-          </>
-        ) : (
-          <>
-            <input
               ref={updateRef}
               value={showInputTask}
               type="text"
@@ -77,12 +59,30 @@ const CreateTask = () => {
               Back
             </button>
           </>
+        ) : (
+          <>
+            <input
+              ref={taskRef}
+              value={showInputTask}
+              type="text"
+              placeholder="Add Task"
+              className="m-4  p-4 w-[200px] md:w-[300px]  rounded-lg"
+              onChange={(e) => setShowInputTask(e.target.value)}
+            ></input>
+            <button
+              className="bg-green-400 p-4  rounded-lg
+       hover:shadow-lg hover:bg-green-300"
+              onClick={handleAdd}
+            >
+              Add
+            </button>
+          </>
         )}
       </div>
 
       <div className="task-details my-4">
         <h4>Total Tasks : {taskList.length}</h4>
-        <h4 >Remaining Tasks : {taskLeft} </h4>
+        <h4>Remaining Tasks : {taskLeft} </h4>
       </div>
     </div>
   );

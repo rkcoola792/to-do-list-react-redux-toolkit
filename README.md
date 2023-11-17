@@ -1,3 +1,7 @@
+# Hosted link of the app
+
+https://todo-list-react-redux-toolkit.web.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
