@@ -31,14 +31,14 @@ const Task = ({name,id}) => {
      console.log("Taskleft",taskLeft)
     }
   return (
-    <div className={"task-container h-[60px] w-[600px] bg-white shadow-lg m-2 flex justify-between rounded-lg " + (highPriority  && " animate-blinkingBg ")} >
+    <div className={"w-[300px] task-container sm:h-[60px]  md:w-[350px] lg:w-[450px] xl:w-[600px] bg-white shadow-lg m-2 flex justify-between rounded-lg " + (highPriority  && " animate-blinkingBg ")} >
       <div
         className={lineThrough ? "task-name m-4 line-through" : "task-name m-4"}
       >
         {name}
       </div>
       <div className="icons m-4 flex gap-2 ">
-        <Tooltip title="Change tas priority" placement='top'>
+        <Tooltip title="Change task priority" placement='top'>
           {highPriority ? (
             <PriorityHighIcon
               className="cursor-pointer hover:scale-125 text-red-600"

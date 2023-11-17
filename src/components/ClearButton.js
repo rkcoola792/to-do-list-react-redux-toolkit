@@ -10,10 +10,13 @@ const ClearButton = () => {
         dispatch(clearItems())
     }
   return (
-    <div className='clear-button bg-red-500 hover:bg-red-400 m-4 mb-8 p-4 w-[400px] rounded-lg hover:shadow-lg cursor-pointer'>
-      <button className='text-2xl ' onClick={handleClear}> Clear List</button>
+    <div className="w-[200px] clear-button bg-red-500 hover:bg-red-400 m-4 mb-8 p-4 sm:w-[250px] md:w-[300px] lg:w-[400px] rounded-lg hover:shadow-lg cursor-pointer">
+      <button className="text-2xl " onClick={handleClear}>
+        {" "}
+        Clear List
+      </button>
     </div>
-  )
+  );
 }
 
 export default ClearButton

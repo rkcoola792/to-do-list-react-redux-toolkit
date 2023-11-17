@@ -41,11 +41,11 @@ const CreateTask = () => {
               value={showInputTask}
               type="text"
               placeholder="Add Task"
-              className="m-4 p-4 w-[300px] rounded-lg"
+              className="m-4  p-4 w-[200px] md:w-[300px]  rounded-lg"
               onChange={(e) => setShowInputTask(e.target.value)}
             ></input>
             <button
-              className="bg-green-400 p-4 rounded-lg
+              className="bg-green-400 p-4  rounded-lg
        hover:shadow-lg hover:bg-green-300"
               onClick={handleAdd}
             >
@@ -59,7 +59,7 @@ const CreateTask = () => {
               value={showInputTask}
               type="text"
               placeholder="Update Task"
-              className="m-4 p-4 w-[300px] rounded-lg "
+              className="m-4  p-4 w-[300px] rounded-lg "
               onChange={(e) => setShowInputTask(e.target.value)}
             ></input>
             <button
@@ -80,9 +80,9 @@ const CreateTask = () => {
         )}
       </div>
 
-      <div className="task-details">
+      <div className="task-details my-4">
         <h4>Total Tasks : {taskList.length}</h4>
-        <h4>Remaining Tasks : {taskLeft} </h4>
+        <h4 >Remaining Tasks : {taskLeft} </h4>
       </div>
     </div>
   );
